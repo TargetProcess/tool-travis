@@ -1,0 +1,21 @@
+{
+  "name": "travisci-build-tool",
+  "version": "1.0.0",
+  "description": "Travis CI tool for BuildBoard",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
+    "dev": "pm2 --watch --no-daemon start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Taucraft",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "thunkify-wrap": "^1.0.4",
+    "travis-ci": "^2.0.3"
+  },
+  "devDependencies": {
+    "pm2": "^0.15.10"
+  }
+}
