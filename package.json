@@ -17,9 +17,9 @@
     "travis-ci": "^2.0.3"
   },
   "devDependencies": {
+    "chai": "^3.4.1",
     "mocha": "^2.3.4",
-    "pm2": "^0.15.10",
-    "chai": "^3.4.1"
+    "pm2": "^0.15.10"
   },
   "repository": {
     "type": "git",
