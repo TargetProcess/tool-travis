@@ -6,7 +6,7 @@
   "scripts": {
     "start": "pm2 start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
     "dev": "pm2 --watch --no-daemon start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --harmony_destructuring test/**/*.js"
   },
   "author": "Taucraft",
   "license": "ISC",
@@ -17,7 +17,9 @@
     "travis-ci": "^2.0.3"
   },
   "devDependencies": {
-    "pm2": "^0.15.10"
+    "mocha": "^2.3.4",
+    "pm2": "^0.15.10",
+    "chai": "^3.4.1"
   },
   "repository": {
     "type": "git",
