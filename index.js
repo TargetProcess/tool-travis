@@ -10,7 +10,7 @@ var travis = new Travis({
 });
 
 
-var bootstrap = require('tool-bootstrap').bootstrap;
+var bootstrap = require('buildboard-tool-bootstrap').bootstrap;
 
 bootstrap(
     {

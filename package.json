@@ -11,11 +11,20 @@
   "author": "Taucraft",
   "license": "ISC",
   "dependencies": {
+    "buildboard-tool-bootstrap": "github:buildboard/tool-bootstrap",
     "lodash": "^3.10.1",
     "thunkify-wrap": "^1.0.4",
     "travis-ci": "^2.0.3"
   },
   "devDependencies": {
     "pm2": "^0.15.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildboard/citool-travis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/buildboard/citool-travis/issues"
+  },
+  "homepage": "https://github.com/buildboard/citool-travis#readme"
 }
