@@ -4,8 +4,8 @@
   "description": "Travis CI tool for BuildBoard",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
-    "dev": "pm2 --watch --no-daemon start --name=\"travis\" --node-args=\"--harmony_destructuring\"  index.js",
+    "start": "pm2 start --name=\"travis\" --node-args=\"--harmony_destructuring\"  src/index.js",
+    "dev": "pm2 --watch --no-daemon start --name=\"travis\" --node-args=\"--harmony_destructuring\"  src/index.js",
     "test": "mocha --harmony_destructuring test/**/*.js"
   },
   "author": "Taucraft",
@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/buildboard/citool-travis/issues"
   },
-  "homepage": "https://github.com/buildboard/citool-travis#readme"
+  "homepage": "https://github.com/buildboard/citool-travis#readme",
+  "directories": {
+    "test": "test"
+  }
 }
