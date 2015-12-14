@@ -2,5 +2,5 @@
 export MONGO_PORT=27017
 export PORT=3335
 npm install
-pm2 kill travis
+pm2 delete travis
 npm start
