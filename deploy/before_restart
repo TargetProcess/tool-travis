@@ -5,6 +5,5 @@ npm install
 
 export NODE_ENV=prod
 export TOOL_ID=travis
-cp -f ../config-prod.json ./config-prod.json
 pm2 delete travis
 npm start
