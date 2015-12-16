@@ -16,9 +16,9 @@ bootstrap(
     {
         mongo: {
             port: process.env.MONGO_PORT || 3001,
-            db: 'buildtool-travis'
+            db: 'citool-travis'
         },
-        port: process.env.TRAVIS_PORT || 3335,
+        port: process.env.PORT || 3335,
         settings: {
             'user': {
                 caption: 'Github user',
