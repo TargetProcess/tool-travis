@@ -14,11 +14,6 @@ var bootstrap = require('buildboard-tool-bootstrap').bootstrap;
 
 bootstrap(
     {
-        mongo: {
-            port: process.env.MONGO_PORT || 3001,
-            db: 'citool-travis'
-        },
-        port: process.env.PORT || 3335,
         settings: {
             'user': {
                 caption: 'Github user',
