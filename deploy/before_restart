@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
+pm2 delete travis
 rm -rf node_modules
 npm install
-
 export NODE_ENV=prod
 export TOOL_ID=travis
-pm2 delete travis
 npm start
