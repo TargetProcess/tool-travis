@@ -26,7 +26,7 @@ bootstrap(
             }
         },
         methods: {
-            '/builds': {
+            'builds': {
                 get: {
                     action: builds
                 }
