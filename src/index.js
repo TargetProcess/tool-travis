@@ -9,24 +9,23 @@ var travis = new Travis({
     version: '2.0.0'
 });
 
-
 var bootstrap = require('buildboard-tool-bootstrap').bootstrap;
 
 bootstrap(
     {
         id: 'travis',
         settings: {
-            'user': {
+            user: {
                 caption: 'Github user',
                 type: 'string'
             },
-            'repo': {
+            repo: {
                 caption: 'Github repo',
                 type: 'string'
             }
         },
         methods: {
-            'builds': {
+            builds: {
                 get: {
                     action: builds
                 }
@@ -34,7 +33,6 @@ bootstrap(
         }
     }
 );
-
 
 var getBuilds = genify(({user,repo}, callback)=>travis.repos(user, repo).builds.get(callback));
 
