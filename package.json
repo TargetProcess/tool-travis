@@ -13,7 +13,7 @@
   "author": "Taucraft",
   "license": "ISC",
   "dependencies": {
-    "buildboard-tool-bootstrap": "https://git@github.com:buildboard/buildboard-tool-bootstrap.git",
+    "buildboard-tool-bootstrap": "https://github.com/buildboard/buildboard-tool-bootstrap.git",
     "lodash": "^3.10.1",
     "thunkify-wrap": "^1.0.4",
     "travis-ci": "^2.0.3"
