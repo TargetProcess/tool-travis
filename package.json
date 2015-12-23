@@ -13,7 +13,7 @@
   "author": "Taucraft",
   "license": "ISC",
   "dependencies": {
-    "buildboard-tool-bootstrap": "git+https://git@github.com:buildboard/buildboard-tool-bootstrap.git",
+    "buildboard-tool-bootstrap": "https://git@github.com:buildboard/buildboard-tool-bootstrap.git",
     "lodash": "^3.10.1",
     "thunkify-wrap": "^1.0.4",
     "travis-ci": "^2.0.3"
@@ -21,7 +21,8 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
-    "pm2": "^0.15.10"
+    "pm2": "^0.15.10",
+    "jscs": "^2.7.0"
   },
   "repository": {
     "type": "git",
