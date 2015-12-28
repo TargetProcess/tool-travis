@@ -29,6 +29,19 @@ bootstrap(
                 get: {
                     action: builds
                 }
+            },
+            jobs: {
+                get: {
+                    params: {
+                        'build.id': {
+                            required: true
+                        }
+                    },
+                    action: jobs
+                },
+                post: {
+                    action: function(){}
+                }
             }
         }
     }
@@ -40,7 +53,7 @@ function *builds() {
     var {builds, commits} = yield getBuilds(this.passport.user.config);
     let commitMap = _.indexBy(commits, 'id');
     this.body = {
-        builds: _.map(builds, b=> {
+        builds: _.map(builds, b => {
             var commit = commitMap[b.commit_id];
             return {
                 id: b.id,
@@ -54,5 +67,8 @@ function *builds() {
             };
         })
     };
+}
 
+function *jobs() {
+    let buildId = this.params['build.id'];
 }
