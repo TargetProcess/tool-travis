@@ -53,7 +53,7 @@ function *builds() {
     var {builds, commits} = yield getBuilds(this.passport.user.config);
     let commitMap = _.indexBy(commits, 'id');
     this.body = {
-        builds: _.map(builds, b => {
+        items: _.map(builds, b => {
             var commit = commitMap[b.commit_id];
             return {
                 id: b.id,
