@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name"        : "travis",
+    "script"      : "src/index.js",
+    "watch"       : false,
+    "node_args"   : "--harmony_destructuring",
+    "merge_logs"  : true,
+    "cwd"         : "/home/citool-travis",
+    "env": {
+        "NODE_ENV": "prod",
+    }
+  }]
+}
