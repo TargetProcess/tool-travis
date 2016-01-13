@@ -4,7 +4,7 @@
   "description": "Travis CI tool for BuildBoard",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start --name=\"travis\" --node-args=\"--harmony_destructuring\"  src/index.js",
+    "start": "pm2 start deploy/travis.json",
     "dev": "pm2 --watch --no-daemon start --name=\"travis\" --node-args=\"--harmony_destructuring\"  src/index.js",
     "jscs": "jscs ./ --config=./.jscsrc --reporter=console",
     "jscsfix": "jscs ./ --config=./.jscsrc --reporter=console --fix",

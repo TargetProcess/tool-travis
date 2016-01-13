@@ -3,5 +3,4 @@
 pm2 delete travis
 npm update
 npm install
-export NODE_ENV=prod
 npm start
