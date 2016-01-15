@@ -37,8 +37,7 @@ bootstrap(
             },
             artifacts: {
                 get: {
-                    action: function () {
-                    }
+                    action: artifacts
                 }
             }
         }
@@ -57,6 +56,12 @@ function *builds() {
 function *jobs() {
     this.body = {
         items: yield getJobs(this.passport.user.config)
+    };
+}
+
+function *artifacts() {
+    this.body = {
+        items: yield getArtifacts(this.passport.user.config)
     };
 }
 
@@ -107,5 +112,20 @@ function *getJobs(config) {
             config: {},
             status: job.state
         }
-    })
+    });
+}
+
+function *getArtifacts(config) {
+    let {builds} = yield getBuildsFromTravis(config);
+    let jobIds = _.flatten(builds.map(b => b.job_ids));
+
+    return jobIds.map(id => {
+        let url = `https://api.travis-ci.org/jobs/${id}/log.txt`;
+        return {
+            id: url,
+            name: 'output',
+            job: id,
+            url: url
+        };
+    });
 }
