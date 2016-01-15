@@ -32,14 +32,11 @@ bootstrap(
             },
             jobs: {
                 get: {
-                    params: {
-                        'build.id': {
-                            required: true
-                        }
-                    },
                     action: jobs
-                },
-                post: {
+                }
+            },
+            artifacts: {
+                get: {
                     action: function(){}
                 }
             }
@@ -50,25 +47,28 @@ bootstrap(
 var getBuilds = genify(({user,repo}, callback)=>travis.repos(user, repo).builds.get(callback));
 
 function *builds() {
-    var {builds, commits} = yield getBuilds(this.passport.user.config);
+    let config = this.passport.user.config;
+    var {builds, commits} = yield getBuilds(config);
     let commitMap = _.indexBy(commits, 'id');
     this.body = {
         items: _.map(builds, b => {
             var commit = commitMap[b.commit_id];
             return {
                 id: b.id,
-                started: b.started_at,
-                finished: b.finished_at,
+                name: `${commit.branch}_${b.number}`,
+                timestamp: b.started_at,
                 duration: b.duration,
-                sha: commit.sha,
+                commit: commit.sha,
+                number: b.number,
+                url: `https://travis-ci.org/${config.user}/${config.repo}/builds/${b.id}`,
                 pullRequest: commit.pull_request_number,
                 branch: commit.branch,
-                status: b.state
+                status: b.state,
+                config: {}
             };
         })
     };
 }
 
 function *jobs() {
-    let buildId = this.params['build.id'];
 }
