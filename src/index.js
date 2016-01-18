@@ -41,6 +41,58 @@ bootstrap(
                 }
             }
         }
+    },
+    ({router, generalSettings})=> {
+        router.post('/webhook', function *() {
+            let payload = this.request.body.payload;
+            let build = {
+                id: payload.id,
+                name: `${payload.branch}_${payload.number}`,
+                timestamp: payload.started_at,
+                commit: payload.commit,
+                number: payload.number,
+                url: payload.build_url,
+                branch: payload.branch,
+                status: payload.status_message,
+                config: {},
+                initiator: payload.commiter_name,
+                pullRequest: payload.type === 'pull_request' ? payload.pull_request_number : null
+            };
+
+            let buildRequestOptions = {
+                url: generalSettings.buildboardUrl + '/api/builds/' + this.passport.user.toolToken,
+                method: 'post',
+                json: build
+            };
+
+            yield request(buildRequestOptions);
+
+            let jobs = payload.matrix.map(j => {
+                return {
+                    id: j.id,
+                    name: `${j.branch}_${j.number}`,
+                    url: `https://travis-ci.org/${payload.repository.owner_name}/${payload.repository.name}/jobs/${j.id}`,
+                    number: j.number,
+                    build: build.id,
+                    timestamp: j.started_at,
+                    config: {},
+                    status:j.status
+                };
+            });
+
+            let jobRequestOptions = {
+                url: generalSettings.buildboardUrl + '/api/jobs/' + this.passport.user.toolToken,
+                method: 'post',
+                json: {
+                    items: jobs
+                }
+            };
+            yield request(jobRequestOptions);
+
+            this.body = {ok: true};
+            this.status = 200;
+
+        });
     }
 );
 
