@@ -16,7 +16,8 @@
     "buildboard-tool-bootstrap": "https://github.com/buildboard/buildboard-tool-bootstrap.git",
     "lodash": "^3.10.1",
     "thunkify-wrap": "^1.0.4",
-    "travis-ci": "^2.0.3"
+    "travis-ci": "^2.0.3",
+    "generic-pool": "~2.3.1"
   },
   "devDependencies": {
     "chai": "^3.4.1",
